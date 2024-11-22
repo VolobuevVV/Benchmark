@@ -15,7 +15,7 @@ except ImportError:
 
 
 
-
+import roboflow
 from roboflow import Roboflow
 rf = Roboflow(api_key="isLsTzINU55umtJ2JAS9")
 project = rf.workspace("volobuevs-workspace").project("transportdetection")
@@ -23,10 +23,10 @@ version = project.version(9)
 dataset = version.download("yolov11")
 
 '''
+import ultralytics
 from ultralytics.utils.benchmarks import benchmark
 benchmark(model="yolo_transport_close.pt", data="TransportDetection-9\data.yaml", imgsz=640)
 
-import ultralytics
 from ultralytics import YOLO
 model = YOLO('yolo_transport_far.pt')
 model.export(format="onnx")
